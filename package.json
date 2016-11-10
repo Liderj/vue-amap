@@ -69,7 +69,7 @@
   },
   "faas": {
     "domain": "vue-amap",
-    "public": "homepage/dist",
+    "public": "./dist",
     "description": "vue-amap 基于Vue2.0和高德的地图组件库",
     "author_name": "zheng.yu",
     "author_email": "zheng.yu@ele.me",
