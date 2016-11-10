@@ -3,12 +3,11 @@ const markdownIt = require('markdown-it')({
   html: true,
   breaks: true
 });
-const path = require('path');
 
 cooking.set({
-  entry: ['./src/homepage/index.js'],
-  template: './src/homepage/index.html',
-  dist: './example',
+  entry: ['./homepage/index.js'],
+  template: './homepage/index.html',
+  dist: './dist',
   devServer: {
     port: 4200,
     publicPath: '/'
@@ -16,16 +15,13 @@ cooking.set({
   extends: ['vue2', 'lint'],
   clean: true,
   hash: true,
-  sourceMap: true
+  sourceMap: true,
+  publicPath: './'
 });
 
 cooking.add('loader.md', {
   test: /\.md$/,
   loader: 'vue-markdown-loader'
-});
-
-cooking.add('resolve.alias', {
-  demos: path.join(__dirname, 'src/homepage/demos')
 });
 
 cooking.add('vueMarkdown', markdownIt);

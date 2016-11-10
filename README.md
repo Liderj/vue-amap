@@ -1,28 +1,27 @@
 # vue-amap
 
-## 快速上手
+> A Vue.js project
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
 ```
-import VueAMap from 'vue-amap';
-Vue.use(VueAMap);
-VueAMap.initAMapApiLoader({
-  key: 'YOUR_KEY',
-  plugin: [...],
-  v: VERSION
-});
 
-```
-
-
-## dev
-`npm start`
-开发起 demo-app [http://localhost:4200](http://localhost:4200)
-
-## publish
-`npm run build`  打包发布脚本到 `publish` 目录
-
-
-## TODO
-+ e2e 测试
-+ 异步控件 mixin
-+ demo-app 文档化
-
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
