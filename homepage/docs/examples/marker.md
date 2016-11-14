@@ -54,7 +54,7 @@ export default {
     allMarkerMove () {
       window.setInterval(() => {
         this.markers.forEach((v) => {
-          v.position = [parseFloat(v.position[0]) + 0.001, v.position[1]]
+          v.position = [v.position[0] + 0.001, v.position[1]]
           })
       }, 1000)
     }
@@ -109,7 +109,7 @@ export default {
       allMarkerMove () {
         window.setInterval(() => {
           this.markers.forEach((v) => {
-            v.position = [parseFloat(v.position[0]) + 0.001, v.position[1]]
+            v.position = [v.position[0] + 0.001, v.position[1]]
             })
         }, 1000)
       }

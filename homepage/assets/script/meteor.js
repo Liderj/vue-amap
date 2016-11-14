@@ -5,6 +5,7 @@ window.meteor = function() {
   let height = 321;
 
   let ele = document.getElementById('meteor');
+  if (!ele) return;
   let ctx = ele.getContext('2d');
 
   ele.setAttribute('height', height);

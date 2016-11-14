@@ -2,25 +2,71 @@
 
 ---
 
-## 模板
+## 示例
 
-地图对象类，封装了地图显示、交互等操作的方法。
-
-```javascript
-<amap id="amap" :zoom="zoom">
-  <amap-marker v-for="marker in markers" :position="marker.position"></amap-marker>
-</amap>
+```html
+<div id="amap" class="demo-component">
+    <amap id="amap" :zoom="zoom" :center="center" :events="events">
+    </amap>
+</div>
 ```
 
-## 属性
+```javascript
+export default {
+  name: 'amap',
+  data () {
+    return {
+      zoom: 14,
+      center: [121.5273285, 31.21515044],
+      events: {
+        click(e) {
+          alert('click map')
+        },
+        init(o) {
+          // o为高德地图实例
+          // 这里为直接操作实例的入口
+          // 不推荐使用
+        }
+      }
+    }
+  }
+}
+```
+
+
+<div class="map-present">
+  <div id="mapDemo2" class="demo-component">
+      <amap id="amap" :zoom="zoom" :center="center" :events="events">
+      </amap>
+    </div>
+  </div>
+</div>
+
+<script>
+export default {
+  name: 'mapDemo2',
+  data () {
+    return {
+      zoom: 14,
+      center: [121.5273285, 31.21515044],
+      events: {
+        click(e) {
+          alert('click map')
+        },
+        init(o) {
+          console.log(o)
+        }
+      }
+    }
+  }
+}
+</script>
+
+## 静态属性
+仅且可以初始化配置，不支持响应式。
 
 名称 | 类型 | 说明
 ---|---|---|
-view | Array | 地图视口，用于控制影响地图静态显示的属性，如：地图中心点“center”
-center | Array | 地图中心点坐标值
-labelzIndex | Number | 地图标注显示顺序
-zooms | Array | 地图显示的缩放级别范围，在PC上，默认范围[3,18]，取值范围[3-18]；在移动设备上，默认范围[3-19]，取值范围[3-19]
-lang | String | 地图语言类型 默认：zh_cn，可选值：zh_cn：中文简体，en：英文，zh_en：中英文对照
 cursor | String | 地图默认鼠标样式。参数cursor应符合CSS的cursor属性规范
 animateEnable | Boolean | 地图平移过程中是否使用动画（如调用panBy、panTo、setCenter、setZoomAndCenter等函数，将对地图产生平移操作，是否使用动画平移的效果），默认为true，即使用动画
 isHotspot | Boolean | 是否开启地图热点，默认false 不打开
@@ -35,13 +81,23 @@ keyboardEnable | Boolean  | 	地图是否可通过键盘控制，方向键控制
 jogEnable | Boolean  | 	地图是否使用缓动效果，默认值为true。此属性可被setStatus/getStatus 方法控制
 scrollWheel | Boolean  | 	地图是否可通过鼠标滚轮缩放浏览，默认为true。此属性可被setStatus/getStatus 方法控制
 touchZoom | Boolean  | 	地图在移动终端上是否可通过多点触控缩放浏览地图，默认为true
-mapStyle	| String |	设置地图显示样式，目前支持normal（默认样式）、dark（深色样式）、light（浅色样式）、fresh(osm清新风格样式)四种
 features	| Array	| 设置地图上显示的元素种类，支持bg（地图背景）、point（兴趣点）、road（道路）、building（建筑物）
+
+## 动态属性
+支持响应式。
+名称 | 类型 | 说明
+---|---|---|
+zooms | Array | 地图显示的缩放级别范围，在PC上，默认范围[3,18]，取值范围[3-18]；在移动设备上，默认范围[3-19]，取值范围[3-19]
+center | Array | 地图中心点坐标值
+labelzIndex | Number | 地图标注显示顺序
+lang | String | 地图语言类型 默认：zh_cn，可选值：zh_cn：中文简体，en：英文，zh_en：中英文对照
+mapStyle	| String |	设置地图显示样式，目前支持normal（默认样式）、dark（深色样式）、light（浅色样式）、fresh(osm清新风格样式)四种
 
 ## 事件
 
 事件 | 参数 | 说明
 ---|---|---|
+init | [AMap](http://lbs.amap.com/api/javascript-api/reference/map/) | 高德地图实例
 complete | |地图图块加载完成后触发事件
 click |[MapsEvent](http://lbs.amap.com/api/javascript-api/reference/event/#MapsEvent) |鼠标左键单击事件 相关示例
 dblclick |[MapsEvent](http://lbs.amap.com/api/javascript-api/reference/event/#MapsEvent) |鼠标左键双击事件

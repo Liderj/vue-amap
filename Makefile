@@ -3,6 +3,9 @@
 dev:
 	@npm start
 
+faas:deploy
+	@npm run faas
+
 dist:
 	@npm run build
 

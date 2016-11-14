@@ -6,7 +6,7 @@ export default [
       {
         component: require('./introduction.md'),
         en: 'Introduction',
-        zh: '介绍'
+        zh: '安装'
       }
     ]
   },

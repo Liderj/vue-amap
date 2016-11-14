@@ -10,6 +10,7 @@
     "build": "cooking ./src/cooking.build.js",
     "deploy": "cooking build -p",
     "start": "cooking watch",
+    "faas": "faas testing",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -73,6 +74,6 @@
     "description": "vue-amap 基于Vue2.0和高德的地图组件库",
     "author_name": "zheng.yu",
     "author_email": "zheng.yu@ele.me",
-    "notice": ["zheng.yu@ele.me", "wei.zhang02@ele.me"]
+    "notice": ["zheng.yu@ele.me", "wei.zhang12@ele.me"]
   }
 }

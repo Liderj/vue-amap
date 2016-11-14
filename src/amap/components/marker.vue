@@ -1,24 +1,5 @@
 <template>
-  <div class="marker"
-    :position="position"
-    :content="content"
-    :offset="offset"
-    :icon="icon"
-    :topWhenClick="topWhenClick"
-    :bubble="bubble"
-    :draggable="draggable"
-    :raiseOnDrag="raiseOnDrag"
-    :cursor="cursor"
-    :visible="visible"
-    :zIndex="zIndex"
-    :angle="angle"
-    :autoRotation="autoRotation"
-    :animation="animation"
-    :shadow="shadow"
-    :title="title"
-    :clickable="clickable"
-    :shape="shape"
-    :label="label">
+  <div class="marker">
     amap-marker
   </div>
 </template>
@@ -44,7 +25,6 @@ export default {
     'angle',
     'autoRotation',
     'animation',
-    'shadow',
     'title',
     'clickable',
     'shape',
@@ -55,7 +35,7 @@ export default {
     return {
       converters: {
         position(v) {
-          return Gaode.lngLatFactory(v);
+          return v;
         },
         offset(v) {
           return Gaode.pixelFactory(v);

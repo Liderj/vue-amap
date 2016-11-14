@@ -97,6 +97,12 @@ export default {
       padding: 30px 400px 30px 30px;
       margin-left: 15%;
 
+      code {
+        * {
+          font-size: 14px;
+        }
+      }
+
       .map-present {
         position: fixed;
         right: 40px;
@@ -164,8 +170,8 @@ export default {
       }
       h2 {
         font-size: 18px;
-        font-weight: normal;
-        margin: 1.4em 0 0.8em 0;
+        font-weight: bold;
+        margin: 2.2em 0 1.2em 0;
       }
       hr {
         border: 0;

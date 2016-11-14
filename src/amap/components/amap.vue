@@ -1,28 +1,6 @@
 <template>
   <div class="vue-amap">
-    <div class="amap-core"
-    :id="id"
-    :zoom="zoom"
-    :center="center"
-    :labelzIndex="labelzIndex"
-    :zooms="zooms"
-    :lang="lang"
-    :cursor="cursor"
-    :animateEnable="animateEnable"
-    :isHotspot="isHotspot"
-    :defaultLayer="defaultLayer"
-    :rotateEnable="rotateEnable"
-    :resizeEnable="resizeEnable"
-    :showIndoorMap="showIndoorMap"
-    :expandZoomRange="expandZoomRange"
-    :dragEnable="dragEnable"
-    :zoomEnable="zoomEnable"
-    :doubleClickZoom="doubleClickZoom"
-    :keyboardEnable="keyboardEnable"
-    :jogEnable="jogEnable"
-    :scrollWheel="scrollWheel"
-    :touchZoom="touchZoom"
-    ><div/>
+    <div class="amap-core" :id="id"><div/>
     <div class="amap-data">
       <slot></slot>
     </div>
@@ -46,7 +24,6 @@ export default {
     'cursor',
     'animateEnable',
     'isHotspot',
-    'defaultLayer',
     'rotateEnable',
     'resizeEnable',
     'showIndoorMap',
@@ -58,7 +35,8 @@ export default {
     'jogEnable',
     'scrollWheel',
     'touchZoom',
-    'mapStyle'
+    'mapStyle',
+    'events'
   ],
   mixins: [ComponentMixin],
 
@@ -77,12 +55,6 @@ export default {
 
     entity() {
       return this.$_amap;
-    },
-
-    converters: {
-      center(v) {
-        return Gaode.pointFactory(v);
-      }
     }
   },
 

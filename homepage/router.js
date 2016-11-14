@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import Docs from './pages/Docs';
-import Home from './pages/Home';
+let Home = require('./pages/Home.md');
 import docs from './docs';
 import enToSnake from './utils/enToSnake';
 
