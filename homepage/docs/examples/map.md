@@ -10,10 +10,7 @@
   </amap>
   <div class="action-list">
     <p>
-      reactive prop : <button @click="changeZoom()">change zoom</button>
-    </p>
-    <p>
-      no reactive prop : <button @click="toggleDragEnable()">toggle dragEnable</button>
+      <button @click="changeZoom()">change zoom</button>
     </p>
   </div>
 </div>
@@ -35,10 +32,6 @@ export default {
   methods: {
     changeZoom () {
       this.zoom++
-    },
-
-    toggleDragEnable () {
-      this.dragEnable = !this.dragEnable
     }
   }
 }
@@ -50,10 +43,7 @@ export default {
     </amap>
     <div class="action-list">
       <p>
-        changeable prop : <button @click="changeZoom()">change zoom</button>
-      </p>
-      <p>
-        not changeable prop : <button @click="toggleDragEnable()">toggle dragEnable</button>
+        <button @click="changeZoom()">change zoom</button>
       </p>
     </div>
   </div>
@@ -74,10 +64,6 @@ export default {
     methods: {
       changeZoom () {
         this.zoom++
-      },
-
-      toggleDragEnable () {
-        this.dragEnable = !this.dragEnable
       }
     }
   }

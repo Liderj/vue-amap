@@ -5,7 +5,7 @@
 ## 示例
 
 ```html
-<div id="amap" class="demo-component">
+<div id="demoComponent" class="demo-component">
     <amap id="amap" :zoom="zoom" :center="center" :events="events">
     </amap>
 </div>
@@ -13,14 +13,14 @@
 
 ```javascript
 export default {
-  name: 'amap',
+  name: 'demoComponent',
   data () {
     return {
       zoom: 14,
       center: [121.5273285, 31.21515044],
       events: {
         click(e) {
-          alert('click map')
+          alert('click map');
         },
         init(o) {
           // o为高德地图实例
@@ -35,7 +35,7 @@ export default {
 
 
 <div class="map-present">
-  <div id="mapDemo2" class="demo-component">
+  <div id="demoComponent" class="demo-component">
       <amap id="amap" :zoom="zoom" :center="center" :events="events">
       </amap>
     </div>
@@ -44,14 +44,14 @@ export default {
 
 <script>
 export default {
-  name: 'mapDemo2',
+  name: 'demoComponent',
   data () {
     return {
       zoom: 14,
       center: [121.5273285, 31.21515044],
       events: {
         click(e) {
-          alert('click map')
+          alert('click map');
         },
         init(o) {
           console.log(o)

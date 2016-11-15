@@ -1,4 +1,4 @@
-# 点坐标
+# 点标志
 
 ---
 
@@ -25,10 +25,10 @@ export default {
           position: [121.5273285, 31.21515044],
           events: {
             click() {
-              alert('click marker')
+              alert('click marker');
             },
             init(o) {
-              // o为高德地图实例
+              // o为点标志覆盖物实例
               // 这里为直接操作实例的入口
               // 不推荐使用
             }
@@ -62,10 +62,7 @@ export default {
           position: [121.5273285, 31.21515044],
           events: {
             click() {
-              alert('click marker')
-            },
-            init(o) {
-              console.log(o);
+              alert('click marker');
             }
           }
         }
@@ -108,7 +105,7 @@ label | {content,offset} | 添加文本标注，content为文本标注的内容�
 
 事件 | 参数 | 说明
 ---|---|---|
-init |[Marker](http://lbs.amap.com/api/javascript-api/reference/overlay/#Marker) | 高德点坐标实例
+init |[Marker](http://lbs.amap.com/api/javascript-api/reference/overlay/#Marker) | 高德点标志实例
 click | [MapsEvent](http://lbs.amap.com/api/javascript-api/reference/event/#MapsEvent) | 鼠标左键单击事件
 dblclick | [MapsEvent](http://lbs.amap.com/api/javascript-api/reference/event/#MapsEvent) | 鼠标左键双击事件
 rightclick | [MapsEvent](http://lbs.amap.com/api/javascript-api/reference/event/#MapsEvent) | 鼠标右键单击事件

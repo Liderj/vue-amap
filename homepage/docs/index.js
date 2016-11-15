@@ -38,12 +38,13 @@ export default [
         component: require('./circle.md'),
         en: 'Circle',
         zh: '圆'
-      },
-      {
-        component: require('./groundimage.md'),
-        en: 'GroundImage',
-        zh: '图片覆盖物'
       }
+      // ,
+      // {
+      //   component: require('./groundimage.md'),
+      //   en: 'GroundImage',
+      //   zh: '图片覆盖物'
+      // }
     ]
   },
   {

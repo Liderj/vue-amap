@@ -8,9 +8,12 @@ const DEFAULT_AMAP_CONFIG = {
   callback: 'amapInitCallback'
 };
 
+import Vue from 'vue';
+
 export default {
   load(config) {
-    this._config = Object.assign({}, DEFAULT_AMAP_CONFIG, config);
+    if (this._promise) return this._promise;
+    this._config = Object.assign({}, DEFAULT_AMAP_CONFIG, Vue.config.amap);
 
     const script = document.createElement('script');
     script.type = 'text/javascript';
@@ -62,6 +65,8 @@ export default {
   },
 
   boundsFactory(v) {
-    return new AMap.Bounds(this.lngLatFactory(v[0][0], v[0][1]), this.lngLatFactory(v[1][0], v[1][1]));
+    console.log('bounds');
+    console.log(v);
+    return new AMap.Bounds(this.lngLatFactory([v[0][0], v[0][1]]), this.lngLatFactory([v[1][0], v[1][1]]));
   }
 };
