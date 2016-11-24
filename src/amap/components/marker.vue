@@ -29,14 +29,12 @@ export default {
     'clickable',
     'shape',
     'label',
+    'show',
     'events'
   ],
   data() {
     return {
       converters: {
-        position(v) {
-          return v;
-        },
         offset(v) {
           return Gaode.pixelFactory(v);
         },
@@ -45,6 +43,11 @@ export default {
         },
         shape(v) {
           return new AMap.MarkerShape(v);
+        }
+      },
+      interceptors: {
+        show(o, v) {
+          (v ? o.show() : o.hide());
         }
       }
     };

@@ -38,7 +38,7 @@ export default {
       return _props;
     },
 
-    _isMap(o) {
+    _isSupportSetMap(o) {
       return !o.setMap;
     },
 
@@ -78,7 +78,7 @@ export default {
         this.$_amap_obj.on(k, events[k]);
       }
 
-      if (!this._isMap(this.$_amap_obj)) {
+      if (!this._isSupportSetMap(this.$_amap_obj)) {
         this.$_amap_obj.setMap(this.$_amap);
         // bind 'init' event
         let _init = events['init'] || function() {};
@@ -90,12 +90,27 @@ export default {
           _init(this);
         });
       }
+
+      // excute interceptors
+      if (this.interceptors) {
+        for (let k in this.interceptors) {
+          if (this.$options.propsData[k] !== undefined) {
+            this.interceptors[k](this.$_amap_obj, this.$options.propsData[k]);
+          }
+        }
+      }
     }
   },
 
   created() {
     this._amap_props = this.props || new Map();
     this.$_amap = this.$parent && this.$parent.$_amap ? this.$parent.$_amap : '';
+  },
+
+  destroyed() {
+    if (this.$data.$_amap_type === 'amap' && this.$_amap) {
+      this.$_amap.destroy();
+    }
   },
 
   mounted() {

@@ -22,11 +22,17 @@ export default {
     'strokeStyle',
     'extData',
     'strokeDasharray',
+    'show',
     'events'
   ],
   data() {
     return {
-      converters: {}
+      converters: {},
+      interceptors: {
+        show(o, v) {
+          (v ? o.show() : o.hide());
+        }
+      }
     };
   },
 

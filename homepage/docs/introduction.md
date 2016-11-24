@@ -1,23 +1,17 @@
-# vue-amap
+# 安装
 
-vue-amap是一款基于Vue2.0，高德地图V1.3.21，开发的地图框架。
+---
 
-### 快速安装
+### npm安装
 
 ```
 npm install vue-amap --save
 ```
 
-### 引入vue-amap
+### CDN
 
-```javascript
-import AMap from 'vue-amap';
-Vue.use(AMap);
+目前可以通过[eleme/vue-amap](https://github.com/ElemeFE/vue-amap)获取最新版本。
 
-AMap.init({
-  // 高德地图的key
-  key: 'your key',
-  // 高德的插件
-  plugin: [...]
-});
+```
+<script src="https://github.com/ElemeFE/vue-amap"></script>
 ```

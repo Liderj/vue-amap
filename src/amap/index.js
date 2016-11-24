@@ -7,6 +7,7 @@ import Polyline from './components/polyline';
 import Polygon from './components/polygon';
 import Circle from './components/circle';
 import Groundimage from './components/groundimage';
+import InfoWindow from './components/infowindow';
 
 let components = [{
   tag: 'amap',
@@ -26,6 +27,9 @@ let components = [{
 }, {
   tag: 'amap-groundimage',
   compo: Groundimage
+}, {
+  tag: 'amap-info-window',
+  compo: InfoWindow
 }];
 
 components.forEach((v) => {

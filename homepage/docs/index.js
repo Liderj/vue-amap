@@ -7,6 +7,11 @@ export default [
         component: require('./introduction.md'),
         en: 'Introduction',
         zh: '安装'
+      },
+      {
+        component: require('./guide.md'),
+        en: 'Guide',
+        zh: '快速上手'
       }
     ]
   },
@@ -48,18 +53,13 @@ export default [
     ]
   },
   {
-    zh: '示例中心',
+    zh: '信息窗体',
     en: 'examples',
     children: [
       {
-        component: require('./examples/map.md'),
-        en: 'map examples',
-        zh: '地图示例'
-      },
-      {
-        component: require('./examples/marker.md'),
-        en: 'marker examples',
-        zh: '点坐标示例'
+        component: require('./infowindow.md'),
+        en: 'Info Window',
+        zh: '信息窗体'
       }
     ]
   }

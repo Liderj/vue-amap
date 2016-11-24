@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="docs-page">
     <div class="nav">
+      <a href="/" class="back">返回</a>
       <section v-for="chapter in docs" class="chapters">
         <header class="chapter-title">
           {{chapter.zh}}
@@ -38,6 +39,15 @@ export default {
 
 .docs-page {
   height: 100%;
+
+  .back {
+    font-size: 14px;
+    margin: -10px 0 0 35px;
+    color: #b9b4b4;
+    display: block;
+    width: 100%;
+  }
+
   > div {
     float: left;
     height: 100%;
@@ -76,19 +86,20 @@ export default {
         cursor: pointer;
         transition: color .2s;
         border-right: 2px solid transparent;
-        color: inherit;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
         font-size: 13px;
-        color: #9a9a9a;
+        color: #80a0b1;
 
         &:hover {
-          color: #42b983;
+          color: #4f8eca;
+          font-weight: bold;
         }
         &.selected {
-          color: #42b983;
-          border-right-color: #42b983;
+          color: #4f8eca;
+          border-right-color: #4f8eca;
+          font-weight: bold;
         }
       }
     }
@@ -96,12 +107,6 @@ export default {
       width: 85%;
       padding: 30px 400px 30px 30px;
       margin-left: 15%;
-
-      code {
-        * {
-          font-size: 14px;
-        }
-      }
 
       .map-present {
         position: fixed;
@@ -185,7 +190,7 @@ export default {
     }
     a {
       text-decoration: none;
-      color: #42b983;
+      color: #5194bf;
     }
   }
 }

@@ -40,6 +40,12 @@ export default {
   ],
   mixins: [ComponentMixin],
 
+  data() {
+    return {
+      $_amap_type: 'amap'
+    };
+  },
+
   methods: {
     _bindMap() {
       let propsData = this.$options.propsData;

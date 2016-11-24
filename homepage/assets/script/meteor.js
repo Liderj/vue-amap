@@ -26,7 +26,7 @@ window.meteor = function() {
     return latter[0] - former[0];
   };
 
-  let reqAnimFrame = window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame;
+  let reqAnimFrame = window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame || window.requestAnimationFrame;
 
   let animate = function() {
     reqAnimFrame(animate);
@@ -47,7 +47,7 @@ window.meteor = function() {
       randomYDiff = stars[i][2];
       for (p = k = 0; k <= 100; p = ++k) {
         ctx.beginPath();
-        ctx.strokeStyle = 'rgba(255, 255, 230,' + (1 - p / 100) + ')';
+        ctx.strokeStyle = 'rgba(97,124,160,' + (1 - p / 100) + ')';
         ctx.moveTo(newX - randomYDiff * p * ratio, newY - randomYDiff * p);
         ctx.lineTo(newX - randomYDiff * (p - 1) * ratio, newY - randomYDiff * (p - 1));
         ctx.stroke();
