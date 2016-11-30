@@ -65,8 +65,6 @@ export default {
   },
 
   boundsFactory(v) {
-    console.log('bounds');
-    console.log(v);
     return new AMap.Bounds(this.lngLatFactory([v[0][0], v[0][1]]), this.lngLatFactory([v[1][0], v[1][1]]));
   }
 };

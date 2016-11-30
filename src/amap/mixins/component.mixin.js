@@ -2,6 +2,28 @@ import { Helper, warn } from '../utils';
 
 export default {
   methods: {
+    destroy() {
+      if (this.$data.$_amap_type === 'amap' && this.$_amap) {
+        this.$_amap.destroy();
+      }
+    },
+
+    _applyGaodeGetter(prop) {
+      if (this.$_amap_obj) {
+        let fn = this.$_amap_obj['get' + Helper.uppercaseFirst(prop)];
+        if (fn) {
+          // support getter.like "getCenter"
+          return fn.call(this.$_amap_obj, prop);
+        } else if (this.$_amap_obj.getStatus) {
+          // like "zoomchange", "resizeEnable"
+          let status = this.$_amap_obj.getStatus();
+          return status[prop];
+        } else {
+          return '';
+        }
+      }
+    },
+
     _isReactiveProp(prop) {
       if (this.$_amap_obj) {
         return !!this.$_amap_obj['set' + Helper.uppercaseFirst(prop)];
@@ -17,7 +39,13 @@ export default {
       if (this.$_amap_obj) {
         let fn = this.$_amap_obj['set' + Helper.uppercaseFirst(name)];
         if (fn) {
+          // support setter.like "setCenter"
           return fn.apply(this.$_amap_obj, propData);
+        } else if (this.$_amap_obj.setStatus) {
+          // like "zoomchange", "resizeEnable"
+          let _status = {};
+          _status[name] = propData[0];
+          this.$_amap_obj.setStatus(_status);
         } else {
           warn(name + ' is not changable');
         }
@@ -47,29 +75,31 @@ export default {
       // gaode entity
       this.$_amap_obj = this.entity(propsData);
 
-      let _constProps = [];
-      let _reactiveProps = [];
+      this._constProps = [];
+      this._constPropsMap = new Map();
+      this._reactiveProps = [];
+      this._reactivePropsMap = new Map();
 
       this.$options._propKeys.forEach((v) => {
         if (this._isReactiveProp(v)) {
-          _reactiveProps.push(v);
+          this._reactiveProps.push(v);
+          this._reactivePropsMap.set(v);
         } else {
-          _constProps.push(v);
+          this._constProps.push(v);
+          this._constPropsMap.set(v);
         }
       });
       console.log('const props:');
-      console.log(_constProps);
+      console.log(this._constProps);
       console.log('reactive');
-      console.log(_reactiveProps);
+      console.log(this._reactiveProps);
 
       // add watchers
       for (let k in this.$options.propsData) {
-        if (this._isReactiveProp(k)) {
-          this.$watch(k, (v) => {
-            this._applyGaodeSetter(k, v);
-          });
-          this._applyGaodeSetter(k, this.$options.propsData[k]);
-        }
+        this.$watch(k, (v) => {
+          this._applyGaodeSetter(k, v);
+        });
+        this._applyGaodeSetter(k, this.$options.propsData[k]);
       }
 
       // bind user events
@@ -99,6 +129,7 @@ export default {
           }
         }
       }
+      // console.log(this);
     }
   },
 

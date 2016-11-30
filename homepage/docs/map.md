@@ -36,7 +36,7 @@ export default {
 
 <div class="map-present">
   <div id="demoComponent" class="demo-component">
-      <amap id="amap" :zoom="zoom" :center="center" :events="events">
+      <amap id="amap" :zoom="zoom" :center="center" :events="events" :plugins="plugins">
       </amap>
     </div>
   </div>
@@ -49,6 +49,7 @@ export default {
     return {
       zoom: 14,
       center: [121.5273285, 31.21515044],
+      plugins: ['AMap.MapType', 'AMap.OverView', 'AMap.Scale', 'AMap.ToolBar'],
       events: {
         click(e) {
           alert('click map');
@@ -81,7 +82,6 @@ keyboardEnable | Boolean  | 	地图是否可通过键盘控制，方向键控制
 jogEnable | Boolean  | 	地图是否使用缓动效果，默认值为true。此属性可被setStatus/getStatus 方法控制
 scrollWheel | Boolean  | 	地图是否可通过鼠标滚轮缩放浏览，默认为true。此属性可被setStatus/getStatus 方法控制
 touchZoom | Boolean  | 	地图在移动终端上是否可通过多点触控缩放浏览地图，默认为true
-features	| Array	| 设置地图上显示的元素种类，支持bg（地图背景）、point（兴趣点）、road（道路）、building（建筑物）
 
 ## 动态属性
 支持响应式。
